@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Redirect to delete the task
-                    window.location.href = `notes.php?delete=${index}`;
+                    window.location.href = `gr5_masuelaklarenzglen_ex3.php?delete=${index}`;
                 }
             });
         });

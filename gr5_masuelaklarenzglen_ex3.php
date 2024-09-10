@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task'])) {
         file_put_contents($filename, $task . PHP_EOL, FILE_APPEND);
 
         $_SESSION['message'] = 'Task added successfully!';
-        header("Location: notes.php");
+        header("Location: gr5_masuelaklarenzglen_ex3.php");
         exit;
     }
 }
@@ -31,7 +31,7 @@ if (isset($_GET['delete'])) {
     }
 
     $_SESSION['message'] = 'Task deleted successfully!';
-    header("Location: notes.php");
+    header("Location: gr5_masuelaklarenzglen_ex3.php");
     exit;
 }
 

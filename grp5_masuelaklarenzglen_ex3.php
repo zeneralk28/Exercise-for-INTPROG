@@ -3,7 +3,7 @@ session_start();
 
 $filename = 'todo.txt';
 
-// dito mag aadd ng task
+//add ng task
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task'])) {
     $task = trim($_POST['task']);
     if (!empty($task)) {
@@ -11,12 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['task'])) {
         file_put_contents($filename, $task . PHP_EOL, FILE_APPEND);
 
         $_SESSION['message'] = 'Task added successfully!';
-        header("Location: gr5_masuelaklarenzglen_ex3.php");
+        header( "Location: grp5_masuelaklarenzglen_ex3.php");
         exit;
     }
 }
 
-// dito naman delete ng task
+//delete task
 if (isset($_GET['delete'])) {
     $indexToDelete = $_GET['delete'];
 
@@ -31,11 +31,11 @@ if (isset($_GET['delete'])) {
     }
 
     $_SESSION['message'] = 'Task deleted successfully!';
-    header("Location: gr5_masuelaklarenzglen_ex3.php");
+    header( "Location: grp5_masuelaklarenzglen_ex3.php");
     exit;
 }
 
-// dito yung file exist :)
+//file exist
 $tasks = [];
 if (file_exists($filename)) {
     $tasks = file($filename, FILE_IGNORE_NEW_LINES);
@@ -53,6 +53,8 @@ if (file_exists($filename)) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
+
+    <div class="taskboard">
     <h1>To-Do List</h1>
     <form method="POST" action="">
         <input type="text" name="task" placeholder="Add a new task" required>
@@ -74,6 +76,8 @@ if (file_exists($filename)) {
             <?php endforeach; ?>
         <?php endif; ?>
     </ul>
+
+    </div>
 
     <!-- SweetAlert2 JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
